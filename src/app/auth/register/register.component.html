@@ -1,0 +1,52 @@
+<div class="h-full flex justify-center items-center">
+  <mat-card class="w-1/2">
+    <mat-card-header>
+      <mat-card-title class="text-white">Register</mat-card-title>
+      <mat-card-subtitle>Create your account</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="flex flex-col" [formGroup]="registerForm">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="" formControlName="name" required />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="exemplo@email.com"
+            formControlName="email"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder=""
+            formControlName="password"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder=""
+            required
+            formControlName="confirmPassword"
+          />
+        </mat-form-field>
+      </form>
+      <a class="text-white mr-0" [routerLink]="['/login']"
+        >Already have an account? Login!</a
+      >
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="onSubmit()">
+        Register
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
