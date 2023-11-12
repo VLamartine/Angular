@@ -1,1 +1,19 @@
-<router-outlet />
+<mat-toolbar>
+  <button
+    *ngIf="isLogged"
+    mat-icon-button
+    class="flex mr-2 lg:hidden"
+    (click)="toggleSidebar()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="flex-auto"></span>
+</mat-toolbar>
+<mat-drawer-container class="h-full" *ngIf="isLogged">
+  <mat-drawer mode="side" [opened]="sidebarOpen"
+    ><span class="block">Drawer content</span></mat-drawer
+  >
+  <mat-drawer-content><router-outlet /></mat-drawer-content>
+</mat-drawer-container>
+<router-outlet *ngIf="!isLogged" />
