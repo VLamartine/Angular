@@ -12,7 +12,9 @@
 </mat-toolbar>
 @if(isLogged){
 <mat-drawer-container class="h-full">
-  <mat-drawer mode="side" [opened]="sidebarOpen"><app-sidebar /></mat-drawer>
+  <mat-drawer mode="side" [opened]="sidebarOpen" class="w-40"
+    ><app-sidebar
+  /></mat-drawer>
   <mat-drawer-content><router-outlet /></mat-drawer-content>
 </mat-drawer-container>
 } @else {
