@@ -10,10 +10,11 @@
   <span>My App</span>
   <span class="flex-auto"></span>
 </mat-toolbar>
-<mat-drawer-container class="h-full" *ngIf="isLogged">
-  <mat-drawer mode="side" [opened]="sidebarOpen"
-    ><span class="block">Drawer content</span></mat-drawer
-  >
+@if(isLogged){
+<mat-drawer-container class="h-full">
+  <mat-drawer mode="side" [opened]="sidebarOpen"><app-sidebar /></mat-drawer>
   <mat-drawer-content><router-outlet /></mat-drawer-content>
 </mat-drawer-container>
-<router-outlet *ngIf="!isLogged" />
+} @else {
+<router-outlet />
+}

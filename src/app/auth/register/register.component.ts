@@ -3,10 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
+  FormsModule,
   NonNullableFormBuilder,
+  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { IRegister } from '@interfaces/auth';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterLink } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 interface IRegisterForm {
   name: FormControl<string>;
@@ -19,6 +26,17 @@ interface IRegisterForm {
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    RouterLink,
+    MatCardModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+  ],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup<IRegisterForm>;
