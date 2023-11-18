@@ -1,0 +1,27 @@
+<div class="h-full">
+  <form class="flex flex-col lg:flex-row" [formGroup]="boardForm">
+    <div class="flex flex-col m-2 lg:flex-grow">
+      <mat-form-field>
+        <mat-label>Nome do quadro</mat-label>
+        <input matInput placeholder="" formControlName="name" required />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descrição</mat-label>
+        <textarea matInput formControlName="description" rows="11"></textarea>
+      </mat-form-field>
+    </div>
+    <app-image-upload
+      label="Clique ou arraste a imagem do quadro aqui"
+      (imageUpload)="onImageUploaded($event)"
+      [image]="image"
+    />
+  </form>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onSubmit()"
+    class="mt-8 ml-2"
+  >
+    Criar
+  </button>
+</div>

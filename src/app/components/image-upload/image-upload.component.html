@@ -1,0 +1,47 @@
+<div class="pb-3 my-2 mx-3">
+  <div
+    class="h-64 aspect-square relative bg-white rounded-xl border-dashed border-black/20 border-[1px] text-black/70 overflow-hidden m-auto"
+    [hidden]="imageFile || imagePreview"
+  >
+    <label class="absolute z-10 text-center top-28 mx-6">{{ label }}</label>
+    <input
+      class="absolute opacity-0 w-64 h-72 -top-12 cursor-pointer z-20"
+      id="file"
+      type="file"
+      [multiple]="false"
+      (change)="uploadImage($event)"
+      accept="image/bmp,image/gif,image/jpeg,image/png,image/svg+xml,image/tiff,image/webp"
+      #imageInput
+    />
+  </div>
+
+  <div
+    class="w-full aspect-square rounded-xl border-black/20 border-dashed text-black/70 border-[1px] flex justify-center items-center bg-white"
+    *ngIf="imageFile || imagePreview"
+  >
+    <img
+      [src]="imagePreview"
+      class="object-contain w-full h-full max-h-80 rounded-xl"
+    />
+  </div>
+
+  <div class="py-5 flex gap-2 justify-center">
+    <button
+      mat-raised-button
+      type="button"
+      (click)="imageInput.click()"
+      *ngIf="imagePreview"
+    >
+      Alterar imagem
+    </button>
+    <button
+      mat-raised-button
+      type="button"
+      (click)="removeImage()"
+      color="warn"
+      *ngIf="imageFile || imagePreview"
+    >
+      Remover imagem
+    </button>
+  </div>
+</div>
