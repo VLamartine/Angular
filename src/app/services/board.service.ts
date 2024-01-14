@@ -1,15 +1,15 @@
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { IBody } from '@interfaces/board';
+import { IBoard } from '@interfaces/board';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardService {
-  userBoards: BehaviorSubject<IBody[]> = new BehaviorSubject<IBody[]>([]);
+  userBoards: BehaviorSubject<IBoard[]> = new BehaviorSubject<IBoard[]>([]);
   constructor() {}
 
-  postBoard(body: IBody) {
+  postBoard(body: IBoard) {
     this.userBoards.next([...this.userBoards.getValue(), body]);
     return;
   }

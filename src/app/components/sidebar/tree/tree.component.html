@@ -6,7 +6,9 @@
     matTreeNodePaddingIndent="24"
   >
     <!-- use a disabled button to provide padding for tree leaf -->
-    <button mat-button class="leading-6">{{ node.name }}</button>
+    <a mat-button class="leading-6 w-full" [routerLink]="node.link">
+      {{ node.name }}
+    </a>
     <button mat-icon-button disabled></button>
   </mat-tree-node>
   <!-- This is the tree node template for expandable nodes -->
@@ -16,14 +18,9 @@
     matTreeNodePaddingIndent="24"
     class="ml-2 justify-between"
   >
-    <button mat-button class="leading-6">{{ node.name }}</button>
-    <button
-      mat-icon-button
-      matTreeNodeToggle
-      [attr.aria-label]="'Toggle ' + node.name"
-      class="flex"
-    >
-      <mat-icon class="mat-icon-rtl-mirror">
+    <button mat-button class="leading-6 w-full flex justify-between">
+      {{ node.name }}
+      <mat-icon class="mat-icon-rtl-mirror" matTreeNodeToggle>
         {{ treeControl.isExpanded(node) ? "expand_more" : "chevron_right" }}
       </mat-icon>
     </button>

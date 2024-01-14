@@ -14,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ImageUploadComponent } from 'src/app/components/image-upload/image-upload.component';
+import { BoardService } from '@services/board.service';
+import { IBoard } from '@interfaces/board';
 
 interface IBoardForm {
   name: FormControl<string>;
@@ -40,7 +42,10 @@ interface IBoardForm {
 export class NewBoardComponent {
   boardForm: FormGroup<IBoardForm>;
   imagePreview!: string;
-  constructor(private fb: NonNullableFormBuilder) {
+  constructor(
+    private fb: NonNullableFormBuilder,
+    private boardService: BoardService
+  ) {
     this.boardForm = this.fb.group<IBoardForm>({
       name: this.fb.control('', [Validators.required]),
       image: this.fb.control('', []),
@@ -59,6 +64,14 @@ export class NewBoardComponent {
     if (this.boardForm.invalid) {
       return;
     }
+
+    const body: IBoard = {
+      name: this.boardForm.get('name')?.value ?? '',
+      description: this.boardForm.get('description')?.value,
+      image: this.boardForm.get('image')?.value,
+    };
+
+    this.boardService.postBoard(body);
   }
 
   get image(): string | undefined {
