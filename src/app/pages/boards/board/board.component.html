@@ -11,20 +11,12 @@
       aliquid facere!
     </p>
   </div>
-  <img
-    src="https://img.pokemondb.net/artwork/large/probopass.jpg"
-    alt=""
-    class="max-h-40"
-  />
+  <img src="https://img.pokemondb.net/artwork/large/probopass.jpg" alt="" class="max-h-40" />
 </div>
 
 <div class="flex flex-col mx-10 mt-10 lg:hidden">
   <h1 class="text-center">Nome do quadro</h1>
-  <img
-    src="https://img.pokemondb.net/artwork/large/probopass.jpg"
-    alt=""
-    class="max-h-40 aspect-square mx-auto my-5"
-  />
+  <img src="https://img.pokemondb.net/artwork/large/probopass.jpg" alt="" class="max-h-40 aspect-square mx-auto my-5" />
   <p class="text-justify">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea reiciendis
     earum, nemo quis voluptas excepturi vel quos eveniet aspernatur cumque eos
@@ -36,8 +28,21 @@
   </p>
 </div>
 
-<div>
-  <h3>Last Notes</h3>
-  <a [routerLink]="['login']">Nova nota</a>
-  <a [routerLink]="['login']">ver todas</a>
+<div class="mx-10">
+  <h3 class="font-bold text-center">Last Notes</h3>
+
+  <div class="border rounded-2xl border-white p-4 flex flex-col justify-center">
+    <a mat-button class="">This is the note name</a>
+    <div class="border-b w-full mb-2"></div>
+    <p class="!m-0 text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam cupiditate expedita
+      quae optio
+      corporis sed
+      reiciendis neque quis ratione, porro vero suscipit, tempore laudantium ipsam velit possimus magnam! Voluptatum,
+      temporibus.
+      Molestiae consequatur qui at omnis officia cupiditate fuga, quos nobis, non sit nesciunt unde rem magni
+      voluptatibus quas et. Aliquid ad eum nostrum amet praesentium aut ipsum non harum labore.
+      Facilis, perferendis, necessitatibus alias vero neque vitae a enim nostrum rem ea ad dolores id esse inventore,
+      aliquam minus? Iusto sapiente alias quam sint corrupti animi ducimus porro debitis delectus.</p>
+  </div>
+  <a class="float-right mt-2" [routerLink]="['login']">Ver todas</a>
 </div>
